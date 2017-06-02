@@ -17,6 +17,7 @@ public class RegistrationActivity extends AppCompatActivity {
     private String username, email, pass, confirmPass;
     Button regButton;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,6 +28,7 @@ public class RegistrationActivity extends AppCompatActivity {
         pass_reg = (EditText) findViewById(R.id.password_reg);
         confirm_pass_reg = (EditText) findViewById(R.id.confirm_pass_reg);
         regButton = (Button) findViewById(R.id.registration_button);
+
 
         regButton.setOnClickListener(new View.OnClickListener() {
             @Override
