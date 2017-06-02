@@ -1,11 +1,12 @@
 package karikuncheva.dominosapp;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.EditText;
-import android.widget.Button;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.facebook.AccessToken;
@@ -25,14 +26,18 @@ import karikuncheva.dominosapp.model.User;
 
 public class LoginActivity extends AppCompatActivity {
 
+    public static User loggedUser;
+    public static User loggedFbUser;
+
     private EditText username_login;
     private EditText password_login;
     private Button loginButton;
     private Button registerButton;
-    private String username, password;
-    public static User loggedUser;
-    public static User loggedFbUser;
     private LoginButton loginFbButton;
+
+    private String username;
+    private String password;
+
     private CallbackManager callbackManager;
     private AccessTokenTracker accessTokenTracker;
     private ProfileTracker profileTracker;
@@ -60,13 +65,16 @@ public class LoginActivity extends AppCompatActivity {
         registerButton = (Button) this.findViewById(R.id.registration_button);
         loginFbButton = (LoginButton) this.findViewById(R.id.login_fb_button);
         callbackManager = CallbackManager.Factory.create();
+
         loginButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                if (validate()) {
+                initialize(username_login, password_login);
 
-                    if (DBManager.getInstance(LoginActivity.this).existsUser(username_login.getText().toString())) {
-                        loggedUser = DBManager.getInstance(LoginActivity.this).getUser(username_login.getText().toString());
-                        if (loggedUser.getPassword().equals(password_login.getText().toString())) {
+                if (validate(username, password)) {
+
+                    if (DBManager.getInstance(LoginActivity.this).existsUser(username)) {
+                        loggedUser = DBManager.getInstance(LoginActivity.this).getUser(username);
+                        if (loggedUser.getPassword().equals(password)) {
                             Intent intent = new Intent(LoginActivity.this, MakeOrderActivity.class);
                             LoginActivity.this.startActivity(intent);
                         } else {
@@ -139,8 +147,8 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    public boolean validate() {
-        initialize();
+    public boolean validate(String username, String password) {
+        initialize(username_login, password_login);
         if (username.isEmpty()) {
             username_login.setError("Please, enter a valid username!");
             username_login.requestFocus();
@@ -154,7 +162,7 @@ public class LoginActivity extends AppCompatActivity {
         return true;
     }
 
-    public void initialize() {
+    public void initialize(TextView username_login, TextView password_login) {
         username = username_login.getText().toString().trim();
         password = password_login.getText().toString().trim();
     }
