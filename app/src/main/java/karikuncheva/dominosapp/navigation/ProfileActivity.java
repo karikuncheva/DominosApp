@@ -38,7 +38,6 @@ public class ProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
-        //user =  DBManager.getInstance(ProfileActivity.this).getUser(username);
         back = (Button) findViewById(R.id.back_button_profile);
 
         back.setOnClickListener(new View.OnClickListener() {

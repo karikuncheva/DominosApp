@@ -29,7 +29,6 @@ public class RegistrationActivity extends AppCompatActivity {
         confirm_pass_reg = (EditText) findViewById(R.id.confirm_pass_reg);
         regButton = (Button) findViewById(R.id.registration_button);
 
-
         regButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -58,7 +57,6 @@ public class RegistrationActivity extends AppCompatActivity {
         }
 
     }
-
 
     public boolean validate() {
         boolean valid = true;

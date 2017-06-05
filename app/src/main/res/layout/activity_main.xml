@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/main"
     android:paddingLeft="20dp"
     android:paddingRight="20dp"
-    android:background="@drawable/main"
     tools:context="karikuncheva.dominosapp.LoginActivity">
 
 
@@ -17,104 +17,99 @@
         android:src="@drawable/logo_dominos" />
 
     <RelativeLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@drawable/main_rounded_shape"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:background="@drawable/main_rounded_shape"
         android:paddingBottom="20dp"
-    android:layout_marginTop="160dp"
-    android:paddingLeft="30dp"
-    android:paddingRight="30dp"
-    >
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp">
 
-    <TextView
-        android:id="@+id/login_tv"
-        android:layout_gravity="center_horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="35sp"
-        android:textColor="@color/colorTitles"
-        android:text="Login"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:gravity="center_horizontal"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/login_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:gravity="center_horizontal"
+            android:text="Login"
+            android:textColor="@color/colorTitles"
+            android:textSize="35sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
 
-    <EditText
-        android:id="@+id/username_login"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:maxLength="25"
-        android:maxLines="1"
-        android:hint="Username"
-        android:layout_below="@id/login_tv"
-        android:textColorHint="@color/colorHint"
-        android:layout_marginTop="30dp"
-        android:layout_marginBottom="15dp"
-        />
+        <EditText
+            android:id="@+id/username_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/login_tv"
+            android:layout_marginBottom="15dp"
+            android:layout_marginTop="30dp"
+            android:hint="Username"
+            android:maxLength="25"
+            android:maxLines="1"
+            android:textColorHint="@color/colorHint" />
 
-    <!-- inputType ???? -->
-    <EditText
-        android:id="@+id/password_login"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:maxLength="30"
-        android:maxLines="1"
-        android:inputType="textPassword"
-        android:hint="Password"
-        android:layout_below="@id/username_login"
-        android:textColorHint="@color/colorHint"/>
+        <!-- inputType ???? -->
+        <EditText
+            android:id="@+id/password_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/username_login"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:maxLength="30"
+            android:maxLines="1"
+            android:textColorHint="@color/colorHint" />
 
 
-    <Button
-        android:id="@+id/login_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="15dp"
-        android:layout_marginBottom="20dp"
-        android:text="Login"
-        android:textStyle="bold"
-        android:textAllCaps="false"
-        android:layout_below="@id/password_login"
-        android:background="@drawable/rounded_button_login"
-        />
+        <Button
+            android:id="@+id/login_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/password_login"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/rounded_button_login"
+            android:text="Login"
+            android:textAllCaps="false"
+            android:textStyle="bold" />
 
         <com.facebook.login.widget.LoginButton
             android:id="@+id/login_fb_button"
-            android:layout_below="@id/login_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            />
+            android:layout_below="@id/login_button"
+            android:layout_centerInParent="true" />
 
-<TextView
-    android:id="@+id/new_member"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginBottom="5dp"
-    android:text="New member?"
-    android:layout_below="@id/login_fb_button"
-    android:textColor="@color/colorHint"/>
-
-
-    <Button
-        android:id="@+id/registration_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:textAllCaps="false"
-        android:textStyle="bold"
-        android:text="Registration"
-        android:layout_below="@id/new_member"
-        android:layout_marginBottom="30dp"
-        android:background="@drawable/rounded_button"
-        />
+        <TextView
+            android:id="@+id/new_member"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/login_fb_button"
+            android:layout_marginBottom="5dp"
+            android:text="New member?"
+            android:textColor="@color/colorHint" />
 
 
-</RelativeLayout>
+        <Button
+            android:id="@+id/registration_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/new_member"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="0dp"
+            android:background="@drawable/rounded_button"
+            android:text="Registration"
+            android:textAllCaps="false"
+            android:textStyle="bold" />
+
+
+    </RelativeLayout>
 
 
 </RelativeLayout>
