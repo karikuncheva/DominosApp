@@ -129,7 +129,6 @@ public class DBManager extends SQLiteOpenHelper {
         long id = getWritableDatabase().insert("addresses", null, contentValues);
         a.setId((int) id);
         a.setIdUser(LoginActivity.loggedUser.getId());
-        //addresses.add(a);
         LoginActivity.loggedUser.getAddresses().add(a);
     }
 
@@ -253,8 +252,7 @@ public class DBManager extends SQLiteOpenHelper {
 
     public void deleteAddress(Address a) {
         getWritableDatabase().delete("addresses", "id = ?", new String[]{Integer.toString(a.getId())});
-
-        //LoginActivity.loggedUser.getAddresses().remove(a);
+        LoginActivity.loggedUser.getAddresses().remove(a);
     }
 
     public boolean existsUser(String username) {
