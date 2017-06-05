@@ -90,7 +90,7 @@
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyBT74E_dcehgbNOjz59tBhgAC8GkkDijmk" />
+            android:value="AIzaSyADA-5slWl_iJXBhPWSxf1fL35-pHn55sw" />
 
         <receiver android:name=".NetworkReceiver">
             <intent-filter>

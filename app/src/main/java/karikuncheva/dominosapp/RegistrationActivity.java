@@ -17,6 +17,7 @@ public class RegistrationActivity extends AppCompatActivity {
     private String username, email, pass, confirmPass;
     Button regButton;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,7 +57,6 @@ public class RegistrationActivity extends AppCompatActivity {
         }
 
     }
-
 
     public boolean validate() {
         boolean valid = true;
