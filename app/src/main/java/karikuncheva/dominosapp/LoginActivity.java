@@ -26,8 +26,9 @@ import karikuncheva.dominosapp.model.User;
 
 public class LoginActivity extends AppCompatActivity {
 
-    public static User loggedUser;
+
     public static User loggedFbUser;
+    public static User loggedUser;
 
     private EditText username_login;
     private EditText password_login;
@@ -37,6 +38,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private String username;
     private String password;
+    private User user;
 
     private CallbackManager callbackManager;
     private AccessTokenTracker accessTokenTracker;
@@ -73,8 +75,8 @@ public class LoginActivity extends AppCompatActivity {
                 if (validate(username, password)) {
 
                     if (DBManager.getInstance(LoginActivity.this).existsUser(username)) {
-                        loggedUser = DBManager.getInstance(LoginActivity.this).getUser(username);
-                        if (loggedUser.getPassword().equals(password)) {
+                        user = DBManager.getInstance(LoginActivity.this).getUser(username);
+                        if (user.getPassword().equals(password)) {
                             Intent intent = new Intent(LoginActivity.this, MakeOrderActivity.class);
                             LoginActivity.this.startActivity(intent);
                         } else {

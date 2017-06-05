@@ -24,7 +24,7 @@ import karikuncheva.dominosapp.model.products.Product;
 
 public class DBManager extends SQLiteOpenHelper {
     private static DBManager ourInstance;
-    private static Context context;
+  //  private static Context context;
     private static HashMap<String, User> registeredUsers;
     public static ArrayList<Pizza> pizzas = new ArrayList<>();
     public static ArrayList<Dessert> desserts = new ArrayList<>();
@@ -72,7 +72,7 @@ public class DBManager extends SQLiteOpenHelper {
     public static DBManager getInstance(Context context) {
         if (ourInstance == null) {
             ourInstance = new DBManager(context);
-            DBManager.context = context;
+          //  DBManager.context = context;
             registeredUsers = new HashMap<>();
             loadUsers();
             loadProducts();
@@ -255,7 +255,8 @@ public class DBManager extends SQLiteOpenHelper {
 
     public void deleteAddress(Address a) {
         getWritableDatabase().delete("addresses", "id = ?", new String[]{Integer.toString(a.getId())});
-        LoginActivity.loggedUser.getAddresses().remove(a);
+
+        //LoginActivity.loggedUser.getAddresses().remove(a);
     }
 
     public boolean existsUser(String username) {

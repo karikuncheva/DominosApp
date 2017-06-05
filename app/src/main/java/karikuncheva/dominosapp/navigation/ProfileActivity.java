@@ -16,23 +16,29 @@ import karikuncheva.dominosapp.catalog.CatalogActivity;
 import karikuncheva.dominosapp.DBManager;
 import karikuncheva.dominosapp.LoginActivity;
 import karikuncheva.dominosapp.R;
+import karikuncheva.dominosapp.model.User;
 
 public class ProfileActivity extends AppCompatActivity {
 
-    private Button back;
-    private EditText phone;
+
+
+    private TextView welcome;
     private EditText name;
+    private EditText phone;
     private EditText password;
     private EditText confirm;
-    private TextView welcome;
     private Button save;
     private Button cancel;
+    private Button back;
+
+    private User user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
+        //user =  DBManager.getInstance(ProfileActivity.this).getUser(username);
         back = (Button) findViewById(R.id.back_button_profile);
 
         back.setOnClickListener(new View.OnClickListener() {
