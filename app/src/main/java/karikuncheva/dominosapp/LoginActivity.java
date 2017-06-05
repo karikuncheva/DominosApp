@@ -63,8 +63,8 @@ public class LoginActivity extends AppCompatActivity {
         loginFbButton = (LoginButton) this.findViewById(R.id.login_fb_button);
         callbackManager = CallbackManager.Factory.create();
 
-        loginButton.setOnClickListener(loginListener);
-        registerButton.setOnClickListener(regListener);
+        loginButton.setOnClickListener(getLoginListener());
+        registerButton.setOnClickListener(getRegListener());
 
         loginFbButton.registerCallback(callbackManager, getFacebookCallback());
 
@@ -91,32 +91,36 @@ public class LoginActivity extends AppCompatActivity {
     }
 
 
-    View.OnClickListener loginListener = new View.OnClickListener() {
-        public void onClick(View v) {
-            initialize(username_login, password_login);
+    protected View.OnClickListener getLoginListener() {
+        return new View.OnClickListener() {
+            public void onClick(View v) {
+                initialize(username_login, password_login);
 
-            if (validate(username, password) && dbManager.existsUser(username)) {
-                loggedUser = dbManager.getUser(username);
+                if (validate(username, password) && dbManager.existsUser(username)) {
+                    loggedUser = dbManager.getUser(username);
 
-                if (loggedUser.getPassword().equals(password)) {
-                    Intent intent = new Intent(LoginActivity.this, MakeOrderActivity.class);
-                    LoginActivity.this.startActivity(intent);
-                } else {
-                    password_login.setError("Wrong password! Please, try again!");
-                    password_login.setText("");
-                    password_login.requestFocus();
+                    if (loggedUser.getPassword().equals(password)) {
+                        Intent intent = new Intent(LoginActivity.this, MakeOrderActivity.class);
+                        LoginActivity.this.startActivity(intent);
+                    } else {
+                        password_login.setError("Wrong password! Please, try again!");
+                        password_login.setText("");
+                        password_login.requestFocus();
+                    }
                 }
             }
-        }
-    };
+        };
+    }
 
-    View.OnClickListener regListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            Intent intent_reg = new Intent(LoginActivity.this, RegistrationActivity.class);
-            LoginActivity.this.startActivity(intent_reg);
-        }
-    };
+    protected View.OnClickListener getRegListener() {
+        return new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent_reg = new Intent(LoginActivity.this, RegistrationActivity.class);
+                LoginActivity.this.startActivity(intent_reg);
+            }
+        };
+    }
 
     public FacebookCallback<LoginResult> getFacebookCallback() {
         return new FacebookCallback<LoginResult>() {
